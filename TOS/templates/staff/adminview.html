@@ -1,0 +1,27 @@
+<div class="table-responsive bg-white p-3 rounded shadow">
+    <h3>Inventory Management</h3>
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Product</th>
+                <th>Stock Level</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>
+                    <span class="badge {% if product.stock < 10 %}bg-danger{% else %}bg-success{% endif %}">
+                        {{ product.stock }} units
+                    </span>
+                </td>
+                <td>${{ product.price }}</td>
+                <td><button class="btn btn-sm btn-outline-secondary">Edit</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
